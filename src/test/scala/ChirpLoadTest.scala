@@ -57,17 +57,17 @@ class ChirpLoadTest extends Simulation {
     .feed(userIds)
     .during(30 seconds){
       exec(getMainPage)
-      .pause(1 seconds)
+      .pause(500 millis)
       .randomSwitch(
         90.0 -> 
           exec(postCredentials)
           .exec(getTimeline)
-          .pause(3 seconds)
+          .pause(1500 millis)
           .randomSwitch(
             3.0 -> 
               exec(postTweet)
               .exec(getTimeline)
-              .pause(300 millis)
+              .pause(100 millis)
           )
           .exec(logout)
       )
